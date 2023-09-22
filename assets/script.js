@@ -34,9 +34,9 @@ let position = 0;
 const left = document.querySelector('.arrow_left'); 
 const right = document.querySelector('.arrow_right');
 
-// Event first try
+// Event first try, mb w/ an if and else (ex: if position = 0 add 1, else add 1 (++) ??)
 left.addEventListener("click", function (){
-	
+
 
 });
 
