@@ -2,60 +2,62 @@
 
 const slides = [
 	{
-		"image":"slide1.jpg",
-		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
+		"image": "slide1.jpg",
+		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"image":"slide2.jpg",
-		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
+		"image": "slide2.jpg",
+		"tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"image":"slide3.jpg",
-		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
+		"image": "slide3.jpg",
+		"tagLine": "Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image":"slide4.png",
-		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
+		"image": "slide4.png",
+		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
 
 // ____SLIDE____
-
-// Défini nb de slide par slideNumber / const car ne va pas se modifier / utilise slides défini plus haut / utilise lenght pour définir la taille par rapport à slides 
 const slideNumber = slides.length;
 
-// Défini position / let car va se modifier (de 0 à 1 ect) avec un event (ex: event = slideNumber -1)
 let position = 0;
 
 // ____ARROW____
+const left = document.querySelector('.arrow_left');
+left.addEventListener("click", function () {
+	if (position == 0) {
+		position = slideNumber - 1;
+	}
+	else {
+		position--;
+	}
+	createCaroussel(position);
+});
 
-// Arrows / const car ne va pas se modifier, 
 
-const left = document.querySelector('.arrow_left'); 
 const right = document.querySelector('.arrow_right');
-
-// Event first try, mb w/ an if and else (ex: if position = 0 add 1, else add 1 (++) ??)
-left.addEventListener("click", function (){
-
-
-});
-
-
-
-right.addEventListener("click", function (){
+right.addEventListener("click", function () {
+	if (position == slideNumber - 1) {
+		position = 0;
+	} else {
+		position++;
+	}
+	createCaroussel(position);
 
 });
-
-
-
-
 
 
 // ____CAROUSSEL____
 
-// créer function caroussel (image à afficher/ imgNow = slideNumber + position)
-// 2 const, imgNow et ?? pour aller chercher l'image (querySelector)
+function createCaroussel(position) {
 
+	const element = slides[position];
+	const img = document.querySelector(".banner-img");
+	img.setAttribute("src", "./assets/images/slideshow/" + element.image);
 
-
+	const p = document.querySelector(".banner-txt");
+	p.innerHTML = element.tagLine;
+}
 
