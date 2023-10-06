@@ -51,7 +51,7 @@ right.addEventListener("click", function () {
 
 // ____CAROUSSEL____
 
-function createCaroussel(position) {
+function createCaroussel(position) {			
 
 	const element = slides[position];
 	const img = document.querySelector(".banner-img");
@@ -59,5 +59,20 @@ function createCaroussel(position) {
 
 	const p = document.querySelector(".banner-txt");
 	p.innerHTML = element.tagLine;
+}
+
+
+// ____DOTS____
+
+createDots()
+
+function createDots(){
+	const dots = document.querySelector(".dots");
+	for (let index = 0; index < slideNumber; index++) {
+	let dot = document.createElement("div");
+	dot.setAttribute("class", "dot");
+	dots.appendChild(dot);
+
+}
 }
 
