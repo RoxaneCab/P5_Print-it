@@ -27,6 +27,7 @@ let position = 0;
 // ____ARROW____
 const left = document.querySelector('.arrow_left');
 left.addEventListener("click", function () {
+	// left.addEventListener("click", () => { })
 	if (position == 0) {
 		position = slideNumber - 1;
 	}
@@ -63,16 +64,32 @@ function createCaroussel(position) {
 
 
 // ____DOTS____
+// Pourquoi pas interpolation/backticks/InnerHtml
 
-createDots()
+createDots()  
+// Pourquoi ça ne marche pas sans?
 
 function createDots(){
 	const dots = document.querySelector(".dots");
 	for (let index = 0; index < slideNumber; index++) {
+		// i = index?
 	let dot = document.createElement("div");
 	dot.setAttribute("class", "dot");
 	dots.appendChild(dot);
 
 }
+}
+
+// ___Updatedots___
+
+updateDots()
+
+function updateDots() {
+	const dotsCreated = document.querySelectorAll(".dot");
+	for (let index = 0; index < slideNumber; index++) {
+		// if
+
+		// else
+	}
 }
 
