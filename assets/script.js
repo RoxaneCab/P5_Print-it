@@ -21,13 +21,11 @@ const slides = [
 
 // ____SLIDE____
 const slideNumber = slides.length;
-
 let position = 0;
 
 // ____ARROW____
 const left = document.querySelector('.arrow_left');
 left.addEventListener("click", function () {
-	// left.addEventListener("click", () => { })
 	if (position == 0) {
 		position = slideNumber - 1;
 	}
@@ -35,6 +33,7 @@ left.addEventListener("click", function () {
 		position--;
 	}
 	createCaroussel(position);
+	updateDot();
 });
 
 
@@ -46,11 +45,12 @@ right.addEventListener("click", function () {
 		position++;
 	}
 	createCaroussel(position);
-
+	updateDot();
 });
 
 
 // ____CAROUSSEL____
+createCaroussel(position)
 
 function createCaroussel(position) {			
 
@@ -64,32 +64,35 @@ function createCaroussel(position) {
 
 
 // ____DOTS____
-// Pourquoi pas interpolation/backticks/InnerHtml
 
-createDots()  
-// Pourquoi ça ne marche pas sans?
+//  createDot()  
+// function createDot(){
+const dots = document.querySelector(".dots")
+for (let index = 0; index < slideNumber; index++) {
 
-function createDots(){
-	const dots = document.querySelector(".dots");
-	for (let index = 0; index < slideNumber; index++) {
-		// i = index?
 	let dot = document.createElement("div");
 	dot.setAttribute("class", "dot");
 	dots.appendChild(dot);
+}  // }
 
-}
-}
 
-// ___Updatedots___
 
-updateDots()
 
-function updateDots() {
-	const dotsCreated = document.querySelectorAll(".dot");
-	for (let index = 0; index < slideNumber; index++) {
-		// if
 
-		// else
+// ____UPDATE DOTS____
+
+updateDot()
+
+function updateDot() {
+	const listPoints = document.querySelectorAll(".dot");	
+	 for (let index = 0; index < listPoints.length; index++) {
+	 
+	  const dot = listPoints[index];
+	  if (index == position){
+		  dot.classList.add('dot_selected');		
 	}
-}
-
+	else{
+	  dot.classList.remove('dot_selected');	 
+	}	  
+	  }  
+  }
